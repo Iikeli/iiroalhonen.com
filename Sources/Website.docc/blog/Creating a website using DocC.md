@@ -78,3 +78,20 @@ Text
 ```
 
 Now our page is rendering as expected.
+
+## Adding the first blog post
+
+Now let's add a skeleton for our first blog post, so we can start getting the structure together.
+
+Let's create a folder inside the `Website` documentation catalog called `blog`. This will house our blog posts, so let's create the first one, a markdown file called `Creating a website using DocC`. Surprisingly, that's the exact post I am writing right now. It should look something like this:
+
+```markdown
+#  Creating a website using DocC
+
+How to create a simple personal website using DocC.
+
+## Overview
+
+This is where we shall start.
+```
+
