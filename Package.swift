@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "IiroAlhonen Website",
+    name: "iiroalhonen-website",
     platforms: [.macOS(.v15)],
     products: [
         .library(
