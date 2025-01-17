@@ -2,6 +2,22 @@
 
 This is my website.
 
+@Metadata {
+    @TitleHeading("Hi! I am")
+    @DisplayName("Iiro Alhonen")
+}
+
+@Options(scope: global) {
+    @AutomaticSeeAlso(disabled)
+    @AutomaticTitleHeading(enabled)
+    @AutomaticArticleSubheading(enabled)
+    @TopicsVisualStyle(list)
+}
+
+@Options(scope: local) {
+    @TopicsVisualStyle(detailedGrid)
+}
+
 ## Overview
 
 Hi!

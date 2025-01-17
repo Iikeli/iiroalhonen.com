@@ -2,6 +2,11 @@
 
 How to create a simple personal website using DocC.
 
+@Metadata {
+    @PageImage(purpose: thumbnail, source: "DocC-Header")
+    /*@PageImage(purpose: icon, source: "DocC-Header") This is for the article top banner */
+}
+
 ## Overview
 
 For a while I've been following the evolution of [the DocC framework](https://github.com/swiftlang/swift-docc) and have been interested in creating my own personal website using it. The potential simplicity it offers in creating a simple blog is very appealing to me. So in this blog post, I will be creating a simple personal blog using DocC, and I'll show how to publish it to GitHub Pages in a follow-up post.
@@ -93,5 +98,15 @@ How to create a simple personal website using DocC.
 ## Overview
 
 This is where we shall start.
+```
+
+Currently our landing page has a title of "Website", which we of course do not want. Luckily we don't need to lose our reference to the `Website` documentation catalog, we can just add a `@Metadata` block to our `main.md` file, like so:
+
+```markdown
+@Metadata {
+    @TitleHeading("Hi! I am")
+    @DisplayName("Iiro Alhonen")
+}
+
 ```
 
