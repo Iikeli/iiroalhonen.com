@@ -39,21 +39,21 @@ jobs:
       #  env:
       #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #  run: swift run generate-metadata
-      
+
       - name: Build Documentation
         run: |
           swift package --allow-writing-to-directory ./docs \
-            generate-documentation --target iiroalhonen.website \
+            generate-documentation --target Website \
             --disable-indexing \
             --transform-for-static-hosting \
             --output-path ./docs
 
       # TODO: fix favicon, the below code is not working as expected
-      - name: Override Favicons
-        run: |
-          rm ./docs/favicon.svg
-          rm ./docs/favicon.ico
-          cp ./favicon.ico ./docs/favicon.ico
+      #- name: Override Favicons
+      #  run: |
+      #    rm ./docs/favicon.svg
+      #    rm ./docs/favicon.ico
+      #    cp ./favicon.ico ./docs/favicon.ico
 
       - name: Create index.html for redirection
         run: |
@@ -63,13 +63,13 @@ jobs:
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Redirecting...</title>
-              <meta http-equiv="refresh" content="0; url=/documentation/wwdcnotes/">
+              <meta http-equiv="refresh" content="0; url=/documentation/Website/">
               <script type="text/javascript">
-                  window.location.href = "/documentation/iiroalhonen-website/";
+                  window.location.href = "/documentation/Website/";
               </script>
           </head>
           <body>
-              <p>If you are not redirected automatically, follow this <a href="/documentation/iiroalhonen-website/">Link</a>.</p>
+              <p>If you are not redirected automatically, follow this <a href="/documentation/Website/">Link</a>.</p>
           </body>
           </html>' > ./docs/index.html
       
