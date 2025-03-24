@@ -82,7 +82,17 @@ Text
 
 ```
 
-Now our page is rendering as expected.
+Now our page is rendering as expected, but has the title of "Website", which we of course do not want. Luckily we don't need to lose our reference to the `Website` documentation catalog, we can just add a `@Metadata` block to our `main.md` file, like so:
+
+```markdown
+@Metadata {
+    @TitleHeading("Hi! I am")
+    @DisplayName("Iiro Alhonen")
+}
+
+```
+
+Great, things are looking better already.
 
 ## Adding the first blog post
 
@@ -100,13 +110,48 @@ How to create a simple personal website using DocC.
 This is where we shall start.
 ```
 
-Currently our landing page has a title of "Website", which we of course do not want. Luckily we don't need to lose our reference to the `Website` documentation catalog, we can just add a `@Metadata` block to our `main.md` file, like so:
+Now we just need to link our blog post to our home page and we are ready with our *very* crude website with blog.
+
+So let's change our `main.md` to look like this:
 
 ```markdown
+# ``Website``
+
+This is my website.
+
 @Metadata {
     @TitleHeading("Hi! I am")
     @DisplayName("Iiro Alhonen")
 }
 
+@Options(scope: global) {
+    @AutomaticSeeAlso(disabled)
+    @AutomaticTitleHeading(enabled)
+    @AutomaticArticleSubheading(enabled)
+    @TopicsVisualStyle(list)
+}
+
+@Options(scope: local) {
+    @TopicsVisualStyle(detailedGrid)
+}
+
+## Overview
+
+Hi!
+
+I'm Iiro. I write iOS applications for a living and sometimes write tutorials on consepts I learn.
+
+## Topics
+
+### Blog posts
+
+- <doc:Creating-a-website-using-DocC>
+
 ```
 
+Now I added a lot of `@Options` there, some with a global scope, and some with a local scope. In general the DocC documentation is pretty great, so if you want to learn more, you can read [more here](https://www.swift.org/documentation/docc/options).
+The most important thing here is the `@TopicsVisualStyle()` that dictates how our list of blog posts will be shown.
+
+## Publishing the site with GitHub Pages
+
+... Add info here
