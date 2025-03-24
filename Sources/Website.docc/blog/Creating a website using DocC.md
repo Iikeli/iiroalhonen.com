@@ -156,6 +156,8 @@ The most important thing here is the `@TopicsVisualStyle()` that dictates how ou
 
 During my time as a developer I've used multiple different website hosting platforms from servers to no-code platforms. All of the different approaches have their pros and cons, but as a developer, it's very hard to argue with the ease and simplicity that is GitHub Pages. I moved there a while ago and I don't think I will ever have the need to change to a different platform. But if you have no interest in using GitHub Pages, feel free to skip this portion and use whatever hosting solution you prefer.
 
-Now the only thing you need to do for publishing your website in GitHub Pages is to go to your project, navigate to `Settings -> Pages` and under `Build and Development -> Branch` you can check your `main` (or any other branch you want to use) and hit save. This will run the default workflow for creating a website from your GitHub repository.
+Now the only thing you need to do for publishing your website in GitHub Pages is to go to your project, navigate to `Settings -> Pages` and under `Build and Development -> Branch` you can check your `main` (or any other branch you want to use) and hit save. This will run the default workflow for creating a website from your GitHub repository. [More info here.](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch)
 
-Now, of course this will not work as we want out of the box, as it will just work with our root folder, meaning our `README.md` will be the landing page. Not what we want.
+Now, of course this will not work as we want out of the box, as it will just work with our root folder and trying to run a Jekyll build workflow. Not what we want.
+
+Since we are not working with Jekyll, we need a little help from GitHub Actions to get the site up and running like we want to.

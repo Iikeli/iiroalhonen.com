@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "iiroalhonen-website",
-    platforms: [.macOS(.v15)],
+    platforms: [.macOS(.v14)],
     products: [
         .library(
             name: "Website", targets: ["Website"]
