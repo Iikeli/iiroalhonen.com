@@ -46,7 +46,7 @@ jobs:
             generate-documentation --target Website \
             --disable-indexing \
             --transform-for-static-hosting \
-            --hosting-base-path iiroalhonen \
+            --hosting-base-path iiroalhonen.com \
             --output-path ./docs
 
       # TODO: fix favicon, the below code is not working as expected
@@ -66,7 +66,7 @@ jobs:
               <title>Redirecting...</title>
               <meta http-equiv="refresh" content="0; url=/iiroalhonen.com/documentation/website/">
               <script type="text/javascript">
-                  window.location.href = "iiroalhonen.com/documentation/website/";
+                  window.location.href = "/documentation/website/";
               </script>
           </head>
           <body>
