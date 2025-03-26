@@ -50,11 +50,11 @@ jobs:
             --output-path ./docs
 
       # TODO: fix favicon, the below code is not working as expected
-      #- name: Override Favicons
-      #  run: |
-      #    rm ./docs/favicon.svg
-      #    rm ./docs/favicon.ico
-      #    cp ./favicon.ico ./docs/favicon.ico
+      - name: Override Favicons
+        run: |
+          rm ./docs/favicon.svg
+          rm ./docs/favicon.ico
+          cp ./favicon.svg ./docs/favicon.svg
 
       - name: Create index.html for redirection
         run: |
