@@ -64,7 +64,7 @@ jobs:
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Redirecting...</title>
-              <meta http-equiv="refresh" content="0; url=/iiroalhonen.com/documentation/website/">
+              <meta http-equiv="refresh" content="0; url=/documentation/website/">
               <script type="text/javascript">
                   window.location.href = "/documentation/website/";
               </script>
@@ -74,8 +74,8 @@ jobs:
           </body>
           </html>' > ./docs/index.html
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      #- name: Setup Pages
+      #  uses: actions/configure-pages@v5
 
       #- name: Upload artifact
       #  uses: actions/upload-pages-artifact@v3
