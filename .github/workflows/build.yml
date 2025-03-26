@@ -1,4 +1,4 @@
-name: Deploy Session Notes to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -35,17 +35,18 @@ jobs:
       - name: Install Swift
         uses: swift-actions/setup-swift@v2
 
-      - name: Generate Metadata
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: swift run generate-metadata
-      
+      #- name: Generate Metadata
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #  run: swift run generate-metadata
+
       - name: Build Documentation
         run: |
           swift package --allow-writing-to-directory ./docs \
-            generate-documentation --target WWDCNotes \
+            generate-documentation --target Website \
             --disable-indexing \
             --transform-for-static-hosting \
+            --hosting-base-path iiroalhonen.com \
             --output-path ./docs
 
       # TODO: fix favicon, the below code is not working as expected
@@ -53,7 +54,7 @@ jobs:
         run: |
           rm ./docs/favicon.svg
           rm ./docs/favicon.ico
-          cp ./favicon.ico ./docs/favicon.ico
+          cp ./favicon.svg ./docs/favicon.svg
 
       - name: Create index.html for redirection
         run: |
@@ -63,16 +64,28 @@ jobs:
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Redirecting...</title>
-              <meta http-equiv="refresh" content="0; url=/documentation/wwdcnotes/">
+              <meta http-equiv="refresh" content="0; url=/documentation/website/">
               <script type="text/javascript">
-                  window.location.href = "/documentation/wwdcnotes/";
+                  window.location.href = "/documentation/website/";
               </script>
           </head>
           <body>
-              <p>If you are not redirected automatically, follow this <a href="/documentation/wwdcnotes/">Link</a>.</p>
+              <p>If you are not redirected automatically, follow this <a href="/documentation/website/">Link</a>.</p>
           </body>
           </html>' > ./docs/index.html
-      
+
+      #- name: Setup Pages
+      #  uses: actions/configure-pages@v5
+
+      #- name: Upload artifact
+      #  uses: actions/upload-pages-artifact@v3
+      #  with:
+      #    path: 'docs'
+
+      #- name: Deploy to GitHub Pages
+      #  id: deployment
+      #  uses: actions/deploy-pages@v4
+
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
