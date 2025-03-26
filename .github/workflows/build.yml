@@ -64,9 +64,9 @@ jobs:
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Redirecting...</title>
-              <meta http-equiv="refresh" content="0; url=/documentation/website/">
+              <meta http-equiv="refresh" content="0; url=/iiroalhonen.com/documentation/website/">
               <script type="text/javascript">
-                  window.location.href = "/documentation/website/";
+                  window.location.href = "iiroalhonen.com/documentation/website/";
               </script>
           </head>
           <body>
@@ -77,17 +77,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'docs'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      #- name: Deploy to Pages
-      #  uses: JamesIves/github-pages-deploy-action@v4.6.0
+      #- name: Upload artifact
+      #  uses: actions/upload-pages-artifact@v3
       #  with:
-      #    branch: gh-pages
-      #    folder: docs
+      #    path: 'docs'
+
+      #- name: Deploy to GitHub Pages
+      #  id: deployment
+      #  uses: actions/deploy-pages@v4
+
+      - name: Deploy to Pages
+        uses: JamesIves/github-pages-deploy-action@v4.6.0
+        with:
+          branch: gh-pages
+          folder: docs
